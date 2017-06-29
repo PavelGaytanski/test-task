@@ -22,7 +22,7 @@
 	}
 	
 	.hold-titles {
-		padding-left: 44px;
+		padding-left: 46px;
 		display: inline-block;
 
 		background-color: $bg-color;
@@ -32,16 +32,22 @@
 		&:before {
 			content: '';
 
-			width: 44px;
+			width: 46px;
 			height: 44px;
 			display: inline-block;
 
-			background-color: gray;
+			background: transparent url('../img/ufc.svg') center no-repeat;
+			background-size: 100%;
 
 			position: absolute;
 			top: 0;
 			left: 0;
 			z-index: 2;
+
+			@media screen and (max-width: $break-x-small) {
+				transform: translateY(-50%);
+				top: 50%;
+			}
 		}
 
 		[class^="title-"] {
@@ -61,7 +67,6 @@
 
 	[class^="row-"] {
 		display: flex;
-		// align-items: stretch;
 
 		@media screen and (max-width: $break-small) {
 			flex-direction: column;
@@ -158,6 +163,8 @@
 			
 			@media screen and (max-width: $break-small) {
 				padding: 10px;
+
+   				 font-size: 16px;
 			}
 		}
 	}
@@ -173,7 +180,7 @@
 
 		@media screen and (max-width: $break-small) {
 			padding-left: 10px;
-			
+
 			flex-basis: 100%;
 
 			border-top: 1px solid $bg-color;

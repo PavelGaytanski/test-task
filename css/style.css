@@ -97,9 +97,7 @@ html, body, .wrapper {
 .wrapper {
   padding-top: 70px;
   max-width: 1280px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column; }
+  margin: 0 auto; }
 
 .menu-link, .button {
   font-size: 16px;
@@ -127,6 +125,10 @@ html, body, .wrapper {
       border-radius: 0;
       font-size: 14px;
       line-height: initial; } }
+  @media screen and (max-width: 470px) {
+    .button {
+      font-size: 10px;
+      font-weight: normal; } }
   .button:not(:first-child) {
     margin-left: 10px; }
   .button-general {
@@ -168,10 +170,13 @@ html, body, .wrapper {
   max-width: 1280px;
   width: 100%;
   min-height: 70px;
-  background-color: #4b4965;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  overflow: hidden;
+  border-bottom: 1px solid #e6ebf1;
+  background-color: #4b4965;
+  box-shadow: 0 0 10px 4px rgba(230, 235, 241, 0.8);
   position: fixed;
   top: 0;
   z-index: 4; }
@@ -195,18 +200,23 @@ html, body, .wrapper {
     .main-header .logo a {
       color: inherit; }
   .main-header nav {
-    flex-basis: 45%;
+    flex-basis: 50%;
     order: 2; }
     @media screen and (max-width: 996px) {
       .main-header nav {
+        display: flex;
         flex: 1 100%;
-        order: 3; } }
+        order: 3;
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch; }
+        .main-header nav::-webkit-scrollbar {
+          display: none; } }
     .main-header nav .menu-link:not(:last-child), .main-header nav .button:not(:last-child) {
       margin-right: 16px; }
     .main-header nav .menu-link:hover, .main-header nav .button:hover {
       color: rgba(255, 255, 255, 0.5); }
   .main-header .user-settings {
-    flex-basis: 30%;
+    flex-basis: 25%;
     order: 3;
     font-size: 0;
     text-align: right; }
@@ -260,24 +270,21 @@ html, body, .wrapper {
   @media screen and (max-width: 996px) {
     .categories {
       display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
+      flex-flow: row wrap;
       justify-content: flex-start; } }
   .categories .category {
     padding: 10px;
     display: block;
     border-bottom: 1px solid #e6ebf1;
-    color: #ffffff; }
-    @media screen and (max-width: 996px) {
-      .categories .category:not(:last-child) {
-        flex-grow: 1; } }
+    color: #ffffff;
+    flex-grow: 1; }
     .categories .category:hover {
       background-color: rgba(255, 255, 255, 0.1); }
     @media screen and (max-width: 996px) {
       .categories .category {
-        padding: 6px;
-        min-width: 150px;
-        width: 50%; } }
+        padding: 5px 10px;
+        width: 150px;
+        border-right: 1px solid #e6ebf1; } }
     @media screen and (max-width: 360px) {
       .categories .category {
         flex-grow: 1; } }
@@ -401,21 +408,26 @@ footer {
     bottom: 5px;
     z-index: 1; }
   .header-section .hold-titles {
-    padding-left: 44px;
+    padding-left: 46px;
     display: inline-block;
     background-color: #e6ebf1;
     position: relative;
     z-index: 3; }
     .header-section .hold-titles:before {
       content: '';
-      width: 44px;
+      width: 46px;
       height: 44px;
       display: inline-block;
-      background-color: gray;
+      background: transparent url("../img/ufc.svg") center no-repeat;
+      background-size: 100%;
       position: absolute;
       top: 0;
       left: 0;
       z-index: 2; }
+      @media screen and (max-width: 360px) {
+        .header-section .hold-titles:before {
+          transform: translateY(-50%);
+          top: 50%; } }
     .header-section .hold-titles [class^="title-"] {
       padding-left: 12px; }
 
@@ -488,7 +500,8 @@ footer {
       padding: 0 6px; }
       @media screen and (max-width: 470px) {
         .data-table .content-description .competitors {
-          padding: 10px; } }
+          padding: 10px;
+          font-size: 16px; } }
   .data-table .content-info {
     flex-basis: 40%;
     justify-content: flex-end;

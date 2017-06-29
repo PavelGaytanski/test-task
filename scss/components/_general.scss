@@ -16,8 +16,8 @@ html, body {
 	max-width: $container;
 	margin: 0 auto;
 
-	display: flex;
-	flex-direction: column;
+	// display: flex;
+	// flex-direction: column;
 
 	@extend body;
 }
@@ -56,6 +56,11 @@ html, body {
 
 		font-size: 14px;
 		line-height: initial;
+	}
+
+	@media screen and (max-width: $break-small) {
+		font-size: 10px;
+		font-weight: normal;
 	}
 
 	&:not(:first-child) {
